@@ -1,0 +1,10 @@
+{
+    "language": "DE",
+    "default_language": "DE",
+    "folders": {
+        "fighters_folder": "fighters",
+        "weapons_folder": "weapons",
+        "armour_folder": "armour"
+    }
+    
+}

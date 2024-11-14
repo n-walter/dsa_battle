@@ -1,0 +1,63 @@
+{
+    "name": {
+        "DE": "Bandit"
+    },
+    "description": {
+        "DE": "08/15 Bandit mit Kurzschwert und Bogen"
+    },
+    "image": false,
+    "type": "complex",
+    "weapons": {
+        "melee": [
+            {
+                "custom": false,
+                "file_name": "kurzschwert.yml"
+            }
+        ],
+        "ranged": [
+            {
+                "custom": false,
+                "file_name": "kurzbogen.yml"
+            }
+        ]
+    },
+    "armour": {
+        "custom": false,
+        "file_name": "stoffruestung.json"
+    },
+    "properties": {
+        "basics": {
+            "MU": 14,
+            "KL": 11,
+            "IN": 13,
+            "CH": 10,
+            "FF": 13,
+            "GE": 12,
+            "KK": 13,
+            "AW": 6,
+            "SK": 1,
+            "ZK": 1,
+            "GS": 8,
+            "LeP": 30,
+            "AsP": 0,
+            "KaP": 0,
+            "INI": 13
+        },
+        "fighting": {
+            "crossbow": 6,
+            "bow": 12,
+            "dagger": 12,
+            "fencing": 6,
+            "impact": 10,
+            "chain": 6,
+            "lance": 6,
+            "weaponless": 12,
+            "shield": 6,
+            "sword": 12,
+            "pole": 8,
+            "throwing": 6,
+            "two_handed_impact": 6,
+            "two_handed_sword": 8
+        }
+    }
+}

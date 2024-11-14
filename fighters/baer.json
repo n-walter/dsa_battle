@@ -1,0 +1,57 @@
+{
+    "name": {
+        "DE": "Bär"
+    },
+    "description": {
+        "DE": "Großer pelziger Bär mit schweren Tatzen und langen Zähnen"
+    },
+    "image": false,
+    "type": "simple",
+    "weapons": {
+        "melee": [
+            {
+                "custom": true,
+                "name": {
+                    "DE": "Biss"
+                },
+                "AT": 15,
+                "TP": {
+                    "dice": [
+                        {
+                            "sides": 6,
+                            "count": 1
+                        }
+                    ],
+                    "hard": 6
+                }
+            },
+            {
+                "custom": true,
+                "name": {
+                    "DE": "Tatzenhieb"
+                },
+                "AT": 15,
+                "TP": {
+                    "dice": [
+                        {
+                            "sides": 6,
+                            "count": 2
+                        }
+                    ],
+                    "hard": 4
+                }
+            }
+        ]
+    },
+    "armour": {
+        "custom": true,
+        "RS": 1
+    },
+    "properties": {
+        "basics": {
+            "AW": 6,
+            "LeP": 22,
+            "INI": 13
+        }
+    }
+}
