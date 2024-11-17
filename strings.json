@@ -1,0 +1,14 @@
+{
+    "roll_dice_description": {
+        "DE": "Bitte folgende Würfel werfen:",
+        "EN": "Please roll these dice:"
+    },
+    "dice_char": {
+        "DE": "W",
+        "EN": "D"
+    },
+    "automatic_roll_hint": {
+        "DE": "auto",
+        "EN": "auto"
+    }
+}
