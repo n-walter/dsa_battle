@@ -11,21 +11,22 @@ def get_dice_roll_line(id: str, die: int):
     die_row = [sg.Text(info_text, size=(15, 1)), sg.VSeparator(pad=((10,0),(0,0))), sg.InputText(key=id, size=(5,1), default_text=default_value)]
     return die_row
 
-def get_dice_rolls(dice: List[int], description: str = "") -> List[int]:
+def get_dice_rolls(dice: List[int], description: str = None) -> List[int]:
     """
     returns list of dice roll values for the list of provided dice.
    
     :param List[int] dice: List of dice to roll. int defines the "size" of the die
-    :param str description: description of the dice to roll e.g. "Attack check for Gil against Steintroll using Degen"
+    :optional param str description: description of the dice to roll e.g. "Attack check for Gil against Steintroll using Degen"
     :return: List of result values. 
     :rtype: List[int]
     """
 
     # define "fluff" elements
-    title_bar_row = [sg.Text(strings.get_string("roll_dice_title"))]
-    description_row = [sg.Text(description, auto_size_text=True)]
+    if description:
+        title_bar_row = [sg.Text(description)]
+    else:
+        title_bar_row = [sg.Text(strings.get_string("roll_dice_description"))]
     v_separator = [sg.HSeparator(pad=((0,0), (0,1)))]
-    v_separator2 = [sg.HSeparator(pad=((0,0), (0,1)))]
     submit_row = [sg.Submit()]
 
     # create ids for GUI elements according to PySimpleGUI convention
@@ -38,8 +39,8 @@ def get_dice_rolls(dice: List[int], description: str = "") -> List[int]:
         dice_rows.append(get_dice_roll_line(dice_ids[i], dice[i]))
 
     # open window, close on next interaction
-    layout = [title_bar_row, v_separator, description_row, v_separator2, dice_rows, submit_row]
-    window = sg.Window(strings.get_string("roll_dice_title"), layout)
+    layout = [title_bar_row, v_separator, dice_rows, submit_row]
+    window = sg.Window(strings.get_string("roll_dice_description"), layout, resizable=True)
     event, values = window.read()
     window.close()
 
@@ -52,5 +53,6 @@ def get_dice_rolls(dice: List[int], description: str = "") -> List[int]:
 
 
 if __name__ == "__main__":
+    print(get_dice_rolls([6], "normal attack check"))
     print(get_dice_rolls([20, 20, 20], "normal ability check"))
     print(get_dice_rolls([100]*100, "absolutely overloaded UI"))
