@@ -12,6 +12,15 @@ def get_dice_roll_line(id: str, die: int):
     return die_row
 
 def get_dice_rolls(dice: List[int], description: str = "") -> List[int]:
+    """
+    returns list of dice roll values for the list of provided dice.
+   
+    :param List[int] dice: List of dice to roll. int defines the "size" of the die
+    :param str description: description of the dice to roll e.g. "Attack check for Gil against Steintroll using Degen"
+    :return: List of result values. 
+    :rtype: List[int]
+    """
+
     # define "fluff" elements
     title_bar_row = [sg.Text(strings.get_string("roll_dice_title"))]
     description_row = [sg.Text(description, auto_size_text=True)]
@@ -23,6 +32,7 @@ def get_dice_rolls(dice: List[int], description: str = "") -> List[int]:
     dice_ids = [f"-DICE{id}-" for id in list(range(0,len(dice)))]
     
     # create dice row GUI elements
+    # TODO: add scroll bar if more than 20 elements
     dice_rows = []
     for i in range(len(dice)):
         dice_rows.append(get_dice_roll_line(dice_ids[i], dice[i]))
@@ -34,4 +44,13 @@ def get_dice_rolls(dice: List[int], description: str = "") -> List[int]:
     window.close()
 
     # TODO: add input validation. ATM user can input any value
-    return [int(values.get(key)) for key in dice_ids]
+    # TODO: add proper "None" check. If UI is closed with the "X" button, all values are None --> TypeError
+    try:
+        return [int(values.get(key)) for key in dice_ids]
+    except TypeError:
+        return [False for die in dice]
+
+
+if __name__ == "__main__":
+    print(get_dice_rolls([20, 20, 20], "normal ability check"))
+    print(get_dice_rolls([100]*100, "absolutely overloaded UI"))
