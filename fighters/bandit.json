@@ -10,19 +10,16 @@
     "weapons": {
         "melee": [
             {
-                "custom": false,
                 "file_name": "kurzschwert.yml"
             }
         ],
         "ranged": [
             {
-                "custom": false,
                 "file_name": "kurzbogen.yml"
             }
         ]
     },
     "armour": {
-        "custom": false,
         "file_name": "stoffruestung.json"
     },
     "properties": {

@@ -14,6 +14,9 @@
         ],
         "hard": 4
     },
+    "simple": false,
+    "type": "ranged",
+    "technique": "bow",
     "loading_time": 1,
     "range": {
         "short": 10,

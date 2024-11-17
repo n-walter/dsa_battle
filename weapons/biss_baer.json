@@ -1,0 +1,21 @@
+{
+    "name": {
+        "DE": "Bärenbiss"
+    },
+    "description": {
+        "DE": "Biss eines Bärs oder vergleichbaren Tiers"
+    },
+    "TP": {
+        "dice": [
+            {
+                "sides": 6,
+                "count": 1
+            }
+        ],
+        "hard": 6
+    },
+    "simple": true,
+    "type": "melee",
+    "AT": 15,
+    "range": "medium"
+}

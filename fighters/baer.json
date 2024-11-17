@@ -10,42 +10,15 @@
     "weapons": {
         "melee": [
             {
-                "custom": true,
-                "name": {
-                    "DE": "Biss"
-                },
-                "AT": 15,
-                "TP": {
-                    "dice": [
-                        {
-                            "sides": 6,
-                            "count": 1
-                        }
-                    ],
-                    "hard": 6
-                }
+                "file_name": "biss_baer.json"
             },
             {
-                "custom": true,
-                "name": {
-                    "DE": "Tatzenhieb"
-                },
-                "AT": 15,
-                "TP": {
-                    "dice": [
-                        {
-                            "sides": 6,
-                            "count": 2
-                        }
-                    ],
-                    "hard": 4
-                }
+                "file_name": "tatze_baer.json"
             }
         ]
     },
     "armour": {
-        "custom": true,
-        "RS": 1
+        "file_name": "fell_baer.json"
     },
     "properties": {
         "basics": {

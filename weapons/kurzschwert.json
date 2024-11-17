@@ -14,6 +14,9 @@
         ],
         "hard": 2
     },
+    "simple": false,
+    "type": "melee",
+    "technique": "sword",
     "modifiers": {
         "AT": 0,
         "PA": 0
