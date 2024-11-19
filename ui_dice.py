@@ -1,5 +1,5 @@
 import PySimpleGUI as sg
-from typing import List, Dict, Any, Self
+from typing import List, Dict, Any, Self, Set
 
 import random                   # roll dice automatically
 import strings                  # translations
@@ -49,7 +49,7 @@ def get_dice_rolls(dice: List[int], description: str = None) -> List[int]:
     try:
         return [int(values.get(key)) for key in dice_ids]
     except TypeError:
-        return [False for die in dice]
+        return [False for die in dice]  
 
 
 if __name__ == "__main__":

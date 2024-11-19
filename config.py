@@ -18,3 +18,6 @@ def get_language_code() -> str:
 
 def get_default_language_code() -> str:
     return get_config()["default_language"]
+
+def get_default_melee_range() -> str:
+    return get_config()["default_melee_range"]

@@ -5,6 +5,6 @@
         "fighters_folder": "fighters",
         "weapons_folder": "weapons",
         "armour_folder": "armour"
-    }
-    
+    },
+    "default_melee_range": "medium"
 }

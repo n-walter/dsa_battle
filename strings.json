@@ -18,5 +18,13 @@
     "roll_attack_prompt": {
         "DE": "AT/FK würfeln",
         "EN": "Roll for AT/FK"
+    },
+    "give_enemy_melee_range_prompt": {
+        "DE": "Gegner Nahkampfreichweite auswählen",
+        "EN": "Select enemy melee range"
+    },
+    "range_string": {
+        "DE": "Nahkampfreichweite",
+        "EN": "melee range"
     }
 }
