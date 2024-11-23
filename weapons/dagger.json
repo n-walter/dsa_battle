@@ -1,9 +1,11 @@
 {
     "name": {
-        "DE": "----- TBD -----"
+        "DE": "Dolch",
+        "EN": "Dagger"
     },
     "description": {
-        "DE": "----- TBD -----"
+        "DE": "ein einfacher Dolch aus Eisen",
+        "EN": "simple dagger made from iron"
     },
     "TP": {
         "dice": [
@@ -12,19 +14,18 @@
                 "count": 1
             }
         ],
-        "hard": 2
+        "hard": 1
     },
     "simple": false,
     "type": "melee",
-    "technique": "----- TBD -----",
+    "technique": "dagger",
     "modifiers": {
         "AT": 0,
         "PA": 0
     },
-    "range": "----- TBD -----",
+    "range": "short",
     "primary_properties": [
-        "GE",
-        "KK"
+        "GE"
     ],
-    "damage_treshold": 15
+    "damage_treshold": 14
 }
