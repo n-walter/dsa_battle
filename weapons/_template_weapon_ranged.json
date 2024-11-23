@@ -1,9 +1,9 @@
 {
     "name": {
-        "DE": "TBD"
+        "DE": "----- TBD -----"
     },
     "description": {
-        "DE": "TBD"
+        "DE": "----- TBD -----"
     },
     "TP": {
         "dice": [
@@ -16,7 +16,7 @@
     },
     "simple": false,
     "type": "ranged",
-    "technique": "TBD",
+    "technique": "----- TBD -----",
     "loading_time": 1,
     "range": {
         "short": 10,
