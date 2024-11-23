@@ -21,7 +21,7 @@ class Weapon:
         self.technique = self.data["technique"]
         
         
-        if self.type == "melee"
+        if self.type == "melee":
             self.range = MELEE_RANGE_INTS[self.data["range"]]
         if self.type == "ranged":
             self.range = self.data["range"]
@@ -50,6 +50,7 @@ class Weapon:
 
     def unload(self):
         self.loading_state = 0
+        return self.get_remaining_loading_time()
 
 
 class Fighter:
@@ -71,10 +72,12 @@ class Fighter:
 class FighterInstance:
     def __init__(self, fighter_type: Fighter) -> None:
         self.fighter_type = fighter_type
-        self.current_lep = self.fighter_type.lep
-        self.current_ini = ui_dice.get_dice_rolls([6], strings.get_string("roll_ini_prompt"))[0] + self.fighter_type.ini
-
         self.instance_name = fighter_type.name
+        self.current_lep = self.fighter_type.lep
+
+        roll_ini_prompt = f"{strings.get_string("roll_ini_prompt")}: {self.instance_name}"
+        self.current_ini = ui_dice.get_dice_rolls([6], roll_ini_prompt)[0] + self.fighter_type.ini
+
 
     def try_attack(self, weapon: Weapon, enemy: Self) -> bool:
         if weapon.type == "melee":
@@ -117,6 +120,7 @@ class FighterInstance:
 
         roll = ui_dice.get_dice_rolls([20], prompt_string)[0]
         success = roll <= target_at
+        # TODO: if crit: automatic fail or hit, no matter what the target was
         if success:
             crit = roll == 1
         else:
