@@ -11,10 +11,6 @@ from constants import MELEE_RANGE_INTS
 from calculations import calculate_range_at_advantage
 
 
-
-
-
-
 class Weapon:
     def __init__(self, file: str) -> None:
         with open(file) as source:
@@ -24,13 +20,36 @@ class Weapon:
         self.type = self.data["type"]
         self.technique = self.data["technique"]
         
-        self.range = MELEE_RANGE_INTS[self.data["range"]]
+        
+        if self.type == "melee"
+            self.range = MELEE_RANGE_INTS[self.data["range"]]
+        if self.type == "ranged":
+            self.range = self.data["range"]
+
+            self.loading_time = self.data["loading_time"]
+            self.loading_state = self.loading_time # we assume fights start with prepared weapons
 
         if self.simple:
             self.at = self.data["AT"]
         else:
-            self.at_modifier = self.data["modifiers"]["AT"]
-            self.pa_modifier = self.data["modifiers"]["PA"]
+            if self.type == "melee":
+                self.at_modifier = self.data["modifiers"]["AT"]
+                self.pa_modifier = self.data["modifiers"]["PA"]
+            else: 
+                self.at_modifier = 0
+                self.pa_modifier = 0
+
+    def get_remaining_loading_time(self) -> int:
+        return self.loading_time - self.loading_state
+    
+    def load(self, amount: int = 1) -> int:
+        self.loading_state += amount
+        if self.loading_state > self.loading_time:
+            self.loading_state = self.loading_time
+        return self.get_remaining_loading_time()
+
+    def unload(self):
+        self.loading_state = 0
 
 
 class Fighter:
@@ -49,7 +68,6 @@ class Fighter:
                 self.name = "NAME_ERROR"
         
 
-
 class FighterInstance:
     def __init__(self, fighter_type: Fighter) -> None:
         self.fighter_type = fighter_type
@@ -58,7 +76,30 @@ class FighterInstance:
 
         self.instance_name = fighter_type.name
 
+    def try_attack(self, weapon: Weapon, enemy: Self) -> bool:
+        if weapon.type == "melee":
+            return self.try_melee_attack(weapon, enemy)
+        elif weapon.type == "ranged":
+            return self.try_ranged_attack(weapon, enemy)
+        else:
+            raise NotImplementedError(f"attack roles for weapon type {weapon.type} not implemented")
+
     def try_melee_attack(self, weapon: Weapon, enemy: Self) -> bool:
+        """
+        collects data for and carries out a melee attack roll for this fighter with the 
+        selected weapon against the selected enemy
+
+        returns tuple of bools for result:
+        (bool1, bool2)
+        where bool1 is a flag for hit / miss
+        bool2 is a flag for a crit hit / miss
+
+        e.g.:
+        normal hit: (True, False)
+        crit hit: (True, True)
+        normal miss: (False, False)
+        crit miss: (False, True)
+        """
         if weapon.simple:
             target_at = weapon.at
         else:
@@ -74,15 +115,45 @@ class FighterInstance:
 
         prompt_string = f"{strings.get_string("roll_attack_prompt")} ({target_at})"
 
-        return ui_dice.get_dice_rolls([20], prompt_string)[0] <= target_at
+        roll = ui_dice.get_dice_rolls([20], prompt_string)[0]
+        success = roll <= target_at
+        if success:
+            crit = roll == 1
+        else:
+            crit = roll == 20
+
+        return (success, crit)
     
-    def try_ranged_attack(self, weapon: Weapon) -> bool:
-        raise NotImplementedError
+    def try_ranged_attack(self, weapon: Weapon, enemy: Self) -> bool:
+        """
+        collects data for and carries out a ranged attack roll for this fighter with the 
+        selected weapon against the selected enemy
+
+        assumes that the weapon is correctly loaded, check beforehand
+
+        returns tuple of bools for result:
+        (bool1, bool2)
+        where bool1 is a flag for hit / miss
+        bool2 is a flag for a crit hit / miss
+
+        e.g.:
+        normal hit: (True, False)
+        crit hit: (True, True)
+        normal miss: (False, False)
+        crit miss: (False, True)
+        """
         if weapon.simple:
             target_at = weapon.at
         else:
             target_at = self.fighter_type.fighting[weapon.technique] + weapon.at_modifier
 
+
+
+        
+
+
+        
+        
     def try_parry(self, weapon: Weapon) -> bool:
         raise NotImplementedError
 
