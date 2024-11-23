@@ -1,0 +1,21 @@
+{
+    "name": {
+        "DE": "TBD"
+    },
+    "description": {
+        "DE": "TBD"
+    },
+    "TP": {
+        "dice": [
+            {
+                "sides": 6,
+                "count": 1
+            }
+        ],
+        "hard": 6
+    },
+    "simple": true,
+    "type": "melee",
+    "AT": 15,
+    "range": "medium"
+}

@@ -1,0 +1,30 @@
+{
+    "name": {
+        "DE": "TBD"
+    },
+    "description": {
+        "DE": "TBD"
+    },
+    "TP": {
+        "dice": [
+            {
+                "sides": 6,
+                "count": 1
+            }
+        ],
+        "hard": 4
+    },
+    "simple": false,
+    "type": "ranged",
+    "technique": "TBD",
+    "loading_time": 1,
+    "range": {
+        "short": 10,
+        "medium": 50,
+        "long": 80
+    },
+    "primary_properties": [
+        "FF"
+    ],
+    "damage_treshold": false
+}

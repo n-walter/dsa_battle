@@ -1,0 +1,30 @@
+{
+    "name": {
+        "DE": "TBD"
+    },
+    "description": {
+        "DE": "TBD"
+    },
+    "TP": {
+        "dice": [
+            {
+                "sides": 6,
+                "count": 1
+            }
+        ],
+        "hard": 2
+    },
+    "simple": false,
+    "type": "melee",
+    "technique": "TBD",
+    "modifiers": {
+        "AT": 0,
+        "PA": 0
+    },
+    "range": "medium",
+    "primary_properties": [
+        "GE",
+        "KK"
+    ],
+    "damage_treshold": 15
+}
