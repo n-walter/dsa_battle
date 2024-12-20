@@ -21,3 +21,6 @@ def get_default_language_code() -> str:
 
 def get_default_melee_range() -> str:
     return get_config()["default_melee_range"]
+
+def get_folders() -> Dict[str, str]:
+    return get_config()["folders"]

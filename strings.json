@@ -1,4 +1,12 @@
 {
+    "LeP_short": {
+        "DE": "LeP",
+        "EN": "HP"
+    },
+    "pain_word": {
+        "DE": "Schmerz",
+        "EN": "pain"
+    },
     "roll_dice_description": {
         "DE": "Bitte folgende Würfel werfen:",
         "EN": "Please roll these dice:"
@@ -26,5 +34,93 @@
     "range_string": {
         "DE": "Nahkampfreichweite",
         "EN": "melee range"
+    },
+    "range_selector_prompt": {
+        "DE": "Distanz:",
+        "EN": "distance:"
+    },
+    "enemy_size_selector_prompt": {
+        "DE": "Gegenergröße:",
+        "EN": "enemy size:"
+    },
+    "enemy_movement_selector_prompt": {
+        "DE": "Gegnergeschwindigkeit:",
+        "EN": "enemy movement speed:"
+    },
+    "creature_size_strings": {
+        "DE": {
+            "tiny": "winzig",
+            "small": "klein",
+            "medium": "mittel",
+            "large": "groß",
+            "giant": "riesig"
+        },
+        "EN:": {
+            "tiny": "tiny",
+            "small": "small",
+            "medium": "medium",
+            "large": "large",
+            "giant": "giant"
+        }
+    },
+    "movement_speeds": {
+        "DE": {
+            "still": "steht still",
+            "slight": "gehend (<= 4 Schritt)",
+            "fast": "rennend (> 4 Schritt)",
+            "dodging": "schlägt Haken (halbe GS)",
+            "not_doding": "schlägt keine Haken"
+        },
+        "EN": {
+            "still": "standing still",
+            "slight": "slight movement (<= 4 steps)",
+            "fast": "fast movement (> 4 steps)",
+            "dodging": "dodging (half GS)",
+            "not_dodging": "not dodging"
+        }
+    },
+    "movement_speeds_horse": {
+        "DE": {
+            "level_0": "Tier steht",
+            "level_1": "Tier im Schritt",
+            "level_2": "Tier im Trab",
+            "level_3": "Tier im Galopp"
+        },
+        "EN": {
+            "level_0": "animal standing",
+            "level_1": "animal in trot",
+            "level_2": "animal in step",
+            "level_3": "animal in canter"
+        }
+    },
+    "visibility": {
+        "DE": {
+            "clear": "klare Sicht",
+            "level_1": "leichtes Blattwerk / Morgendunst",
+            "level_2": "Nebel / Mondlicht", 
+            "level_3": "starker Nebel / Sternenlicht",
+            "invisible": "Gegner ist unsichtbar --> Glückstreffer"
+        },
+        "EN": {
+            "clear": "clear view",
+            "level_1": "slight foliage / morning mist",
+            "level_2": "fog / moon light",
+            "level_3": "heavy fog / starlight",
+            "invisible": "enemy is invisible --> lucky hit"
+        }
+    },
+    "shooting_into_melee": {
+        "DE": {
+            "yes": "Schuss ins Kampfgetümmel",
+            "no": "freier Schuss"
+        }, 
+        "EN": {
+            "yes": "shooting into a melee fight", 
+            "no": "free shot"
+        }
+    },
+    "ranged_modifier_window_title": {
+        "DE": "Fernkampfmodifikatoren auswählen",
+        "EN": "Select ranged fight modifiers"
     }
 }

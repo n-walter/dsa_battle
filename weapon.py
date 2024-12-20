@@ -1,3 +1,10 @@
+import json
+import PySimpleGUI as sg
+
+from constants import MELEE_RANGE_INTS
+import config
+
+
 class Weapon:
     def __init__(self, file: str) -> None:
         with open(file) as source:
@@ -6,6 +13,7 @@ class Weapon:
         self.simple = self.data["simple"]
         self.type = self.data["type"]
         self.technique = self.data["technique"]
+        self.name = self.data["name"][config.get_language_code()]
         
         
         if self.type == "melee":
@@ -26,6 +34,10 @@ class Weapon:
                 self.at_modifier = 0
                 self.pa_modifier = 0
 
+    def get_ui_frame(self) -> sg.Frame:
+        temp_layout = [sg.Text(f"{self.type}")]
+        return sg.Frame(f"temp weapon frame{self.type}", temp_layout)
+
     def get_remaining_loading_time(self) -> int:
         return self.loading_time - self.loading_state
     
@@ -38,3 +50,8 @@ class Weapon:
     def unload(self):
         self.loading_state = 0
         return self.get_remaining_loading_time()
+    
+
+def get_weapon_by_file_name(file_name:str) -> Weapon:
+    folder = config.get_folders()["weapons"]
+    return Weapon(f"{folder}/{file_name}")

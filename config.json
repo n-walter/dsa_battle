@@ -2,9 +2,9 @@
     "language": "DE",
     "default_language": "DE",
     "folders": {
-        "fighters_folder": "fighters",
-        "weapons_folder": "weapons",
-        "armour_folder": "armour"
+        "fighters": "fighters",
+        "weapons": "weapons",
+        "armour": "armour"
     },
     "default_melee_range": "medium"
 }
