@@ -15,6 +15,33 @@
         "DE": "W",
         "EN": "D"
     },
+    "TP_short": {
+        "DE": "TP"
+    },
+    "AT_short": {
+        "DE": "AT"
+    },
+    "PA_short": {
+        "DE": "PA"
+    },
+    "FK_short": {
+        "DE": "FK"
+    },
+    "RW_short": {
+        "DE": "RW"
+    },
+    "melee_weapons": {
+        "DE": "Nahkampfwaffen",
+        "EN": "melee weapons"
+    },
+    "range_weapons": {
+        "DE": "Fernkampfwaffen",
+        "EN": "ranged weapons"
+    },
+    "range_names": {
+        "DE": ["kurz", "mittel", "lang"],
+        "EN": ["short", "medium", "long"]
+    },
     "automatic_roll_hint": {
         "DE": "auto",
         "EN": "auto"

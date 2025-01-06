@@ -18,5 +18,6 @@ def check_hit_and_crit(target_at: int, roll: int, crit_success: int = 1, crit_fa
         return (roll <= target_at, False)
     
 def check_ability(fighter, description: str, stat_types: List[str], skill_value: int = 0) -> bool:
-    # TODO
+    # TODO: skill value can be got from fighter object
+    # TODO: implement Erschwernis/ Erleichterung
     return False

@@ -6,7 +6,7 @@ import strings                  # translations
 
     
 def _get_dice_roll_line(id: str, die: int):
-    info_text = f"1{strings.get_string("dice_char")}{die}: "
+    info_text = f"1{strings.get_str("dice_char")}{die}: "
     default_value = str(random.randint(1, die))
     die_row = [sg.Text(info_text, size=(15, 1)), sg.VSeparator(pad=((10,0),(0,0))), sg.InputText(key=id, size=(5,1), default_text=default_value)]
     return die_row
@@ -25,7 +25,7 @@ def get_dice_rolls(dice: List[int], description: str = None) -> List[int]:
     if description:
         title_bar_row = [sg.Text(description)]
     else:
-        title_bar_row = [sg.Text(strings.get_string("roll_dice_description"))]
+        title_bar_row = [sg.Text(strings.get_str("roll_dice_description"))]
     v_separator = [sg.HSeparator(pad=((0,0), (0,1)))]
     submit_row = [sg.Submit()]
 
@@ -40,7 +40,7 @@ def get_dice_rolls(dice: List[int], description: str = None) -> List[int]:
 
     # open window, close on next interaction
     layout = [title_bar_row, v_separator, dice_rows, submit_row]
-    window = sg.Window(strings.get_string("roll_dice_description"), layout, resizable=True)
+    window = sg.Window(strings.get_str("roll_dice_description"), layout, resizable=True)
     event, values = window.read()
     window.close()
 

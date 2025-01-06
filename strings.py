@@ -14,7 +14,14 @@ def touch_strings(force_reload=False):
         with open("strings.json", "r") as source: 
             strings = json.load(source)
 
-def get_string(string_name: str) -> str:
+def get_dice_string(dice_count: int, dice_sides: int, base: int = 0):
+    """
+    returns a roll prompt string, e.g. "3W20" or "1D6+3"
+    """
+    base_str = f"+{base}" if base != 0 else ""
+    return f"{dice_count}{get_str("dice_char")}{dice_sides}{base_str}"
+
+def get_str(string_name: str) -> str:
     try:
         return get_all_strings()[string_name][config.get_language_code()]
     except KeyError:
