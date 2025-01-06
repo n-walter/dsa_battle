@@ -35,8 +35,8 @@ def get_dice_rolls(dice: List[int], description: str = None) -> List[int]:
     # create dice row GUI elements
     # TODO: add scroll bar if more than 20 elements
     dice_rows = []
-    for i in range(len(dice)):
-        dice_rows.append(_get_dice_roll_line(dice_ids[i], dice[i]))
+    for die_id,die in zip(dice_ids, dice):
+        dice_rows.append(_get_dice_roll_line(die_id, die))
 
     # open window, close on next interaction
     layout = [title_bar_row, v_separator, dice_rows, submit_row]
@@ -55,4 +55,5 @@ def get_dice_rolls(dice: List[int], description: str = None) -> List[int]:
 if __name__ == "__main__":
     print(get_dice_rolls([6], "normal attack check"))
     print(get_dice_rolls([20, 20, 20], "normal ability check"))
+    print(get_dice_rolls([6]))
     print(get_dice_rolls([100]*100, "absolutely overloaded UI"))
