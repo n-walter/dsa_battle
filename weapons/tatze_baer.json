@@ -17,5 +17,6 @@
     "simple": true,
     "type": "melee",
     "AT": 15,
+    "PA": 0,
     "range": "medium"
 }

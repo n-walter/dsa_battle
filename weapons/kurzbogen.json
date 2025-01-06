@@ -18,11 +18,7 @@
     "type": "ranged",
     "technique": "bow",
     "loading_time": 1,
-    "range": {
-        "short": 10,
-        "medium": 50,
-        "long": 80
-    },
+    "range": [10,50,80],
     "primary_properties": [
         "FF"
     ],

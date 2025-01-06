@@ -46,7 +46,7 @@ class FighterInstance:
         if current_ini:
             self.current_ini = current_ini
         else:
-            roll_ini_prompt = f"{strings.get_string("roll_ini_prompt")}: {self.instance_name}"
+            roll_ini_prompt = f"{strings.get_str("roll_ini_prompt")}: {self.instance_name}"
             self.current_ini = ui_dice.get_dice_rolls([6], roll_ini_prompt)[0] + self.fighter_type.ini
         self.ini_position = ini_position if ini_position else -1
 
@@ -65,13 +65,14 @@ class FighterInstance:
         returns this fighter instance's UI frame (for display in lists, e.g. the initative bar)
         """
         top_row = [sg.Push(), sg.Text(f"INI {self.current_ini} | #{self.ini_position}")]
-        lep_row = [sg.Text(f"{self.current_lep}/{self.max_lep} {strings.get_string("LeP_short")}"), 
+        lep_row = [sg.Text(f"{self.current_lep}/{self.max_lep} {strings.get_str("LeP_short")}"), 
                    sg.Push(),
-                   sg.Text(f"{self.pain} {strings.get_string("pain_word")}")]
-        melee_row = [sg.Text(f"melee weapons: {", ".join([weapon.name for weapon in self.melee_weapons])}")]
-        ranged_row = [sg.Text(f"ranged weapons: {", ".join([weapon.name for weapon in self.ranged_weapons])}")]
+                   sg.Text(f"{self.pain} {strings.get_str("pain_word")}")]
+        melee_frame = sg.Frame(strings.get_str("melee_weapons"), layout=[[w.get_ui_frame() for w in self.melee_weapons]])
+        
+        ranged_frame = sg.Frame(strings.get_str("range_weapons"), layout=[[w.get_ui_frame() for w in self.ranged_weapons]])
 
-        layout = [top_row, lep_row, [], melee_row, ranged_row]
+        layout = [top_row, lep_row, [[melee_frame]], [[ranged_frame]]]
         return sg.Frame(self.instance_name, layout)
 
     def receive_damage(self, damage_amount: int, damage_type: str = "physical", ignore_armor: bool = False) -> bool:
@@ -119,9 +120,9 @@ class FighterInstance:
         crit miss: (False, True)
         """
         if weapon.simple:
-            target_at = weapon.at
+            target_at = weapon.AT
         else:
-            target_at = self.fighter_type.fighting[weapon.technique] + weapon.at_modifier
+            target_at = self.fighter_type.fighting[weapon.technique] + weapon.AT_modifier
 
         # get weapon range (dis)advantage
         own_range = weapon.range
@@ -131,7 +132,7 @@ class FighterInstance:
 
         # roll die
         target_at += range_advantage
-        prompt_string = f"{self.instance_name}: {strings.get_string("roll_attack_prompt")} ({target_at})"
+        prompt_string = f"{self.instance_name}: {strings.get_str("roll_attack_prompt")} ({target_at})"
         roll = ui_dice.get_dice_rolls([20], prompt_string)[0]
         
         return check_hit_and_crit(target_at, roll)

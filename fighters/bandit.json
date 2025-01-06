@@ -6,16 +6,17 @@
         "DE": "08/15 Bandit mit Kurzschwert und Bogen"
     },
     "image": false,
+    "info": "",
     "type": "complex",
     "weapons": {
         "melee": [
             {
-                "file_name": "kurzschwert.yml"
+                "file_name": "kurzschwert.json"
             }
         ],
         "ranged": [
             {
-                "file_name": "kurzbogen.yml"
+                "file_name": "kurzbogen.json"
             }
         ]
     },
@@ -30,6 +31,7 @@
             "CH": 10,
             "FF": 13,
             "GE": 12,
+            "KO": 11,
             "KK": 13,
             "AW": 6,
             "SK": 1,
@@ -55,6 +57,9 @@
             "throwing": 6,
             "two_handed_impact": 6,
             "two_handed_sword": 8
+        },
+        "talents": {
+            "some_stat_default_is_0": 8
         }
     }
 }

@@ -6,6 +6,7 @@
         "DE": "Großer pelziger Bär mit schweren Tatzen und langen Zähnen"
     },
     "image": false,
+    "info": "https://dsa.ulisses-regelwiki.de/Best_Bornbaer.html",
     "type": "simple",
     "weapons": {
         "melee": [
@@ -22,8 +23,21 @@
     },
     "properties": {
         "basics": {
+            "MU": 14,
+            "KL": 12,
+            "IN": 12,
+            "CH": 12,
+            "FF": 11,
+            "GE": 11,
+            "KO": 20,
+            "KK": 21,
             "AW": 6,
+            "SK": 0,
+            "ZK": 0,
+            "GS": 10,
             "LeP": 22,
+            "AsP": 0,
+            "KaP": 0,
             "INI": 13
         }
     }
