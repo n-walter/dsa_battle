@@ -42,27 +42,6 @@ class Weapon:
         self.tp_base = self.data["TP"]["hard"]
         self.tp_dice = self.data["TP"]["dice"][0]
 
-    def get_ui_frame(self, AT: int = 0, PA: int = 0) -> sg.Frame:
-        name_str = self.name
-
-        if self.simple:
-            AT = self.AT
-            PA = self.PA
-        else:
-            AT = AT + self.AT_modifier
-            PA = PA + self.PA_modifier
-
-        tp_str = f"{strings.get_str("TP_short")}: {strings.get_dice_string(self.tp_dice["count"], self.tp_dice["sides"], self.tp_base)}"
-        rw_short = strings.get_str("RW_short")
-        rw_str = f"{rw_short}: {strings.get_str("range_names")[self.range]}" if self.type == "melee" else f"{rw_short}: {'/'.join([str(r) for r in self.range])}"
-        at_or_fk = strings.get_str("AT_short") if self.type == "melee" else strings.get_str("FK_short")
-        at_str = f"{at_or_fk}: {AT}"
-        pa_str = f"{strings.get_str("PA_short")}: {PA}" if self.type == "melee" else ""
-
-        layout = [[sg.Text(tp_str), sg.Push(), sg.Text(rw_str), sg.Push(), sg.Text(at_str), sg.Push(), sg.Text(pa_str)]]
-
-        return sg.Frame(name_str, layout)
-
     def get_remaining_loading_time(self) -> int:
         return self.loading_time - self.loading_state
     

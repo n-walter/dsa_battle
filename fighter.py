@@ -60,20 +60,25 @@ class FighterInstance:
         self.melee_weapons = [get_weapon_by_file_name(weapon["file_name"]) for weapon in self.fighter_type.data["weapons"]["melee"]]
         self.ranged_weapons = [get_weapon_by_file_name(weapon["file_name"]) for weapon in self.fighter_type.data["weapons"]["ranged"]]
 
-    def get_ui_frame(self) -> sg.Frame:
-        """
-        returns this fighter instance's UI frame (for display in lists, e.g. the initative bar)
-        """
-        top_row = [sg.Push(), sg.Text(f"INI {self.current_ini} | #{self.ini_position}")]
-        lep_row = [sg.Text(f"{self.current_lep}/{self.max_lep} {strings.get_str("LeP_short")}"), 
-                   sg.Push(),
-                   sg.Text(f"{self.pain} {strings.get_str("pain_word")}")]
-        melee_frame = sg.Frame(strings.get_str("melee_weapons"), layout=[[w.get_ui_frame() for w in self.melee_weapons]])
-        
-        ranged_frame = sg.Frame(strings.get_str("range_weapons"), layout=[[w.get_ui_frame() for w in self.ranged_weapons]])
+    def __eq__(self, other: Self) -> bool:
+        # TODO: compare base INI if two are equal
+        return self.current_ini == other.current_ini
 
-        layout = [top_row, lep_row, [[melee_frame]], [[ranged_frame]]]
-        return sg.Frame(self.instance_name, layout)
+    def __ne__(self, other: Self) -> bool:
+        return self.current_ini != other.current_ini
+
+    def __lt__(self, other: Self) -> bool:
+        return self.current_ini < other.current_ini
+    
+    def __gt__(self, other: Self) -> bool:
+        return self.current_ini > other.current_ini
+    
+    def __le__(self, other: Self) -> bool:
+        return self < other or self == other
+    
+    def __ge__(self, other: Self) -> bool:
+        return self > other or self == other
+    
 
     def receive_damage(self, damage_amount: int, damage_type: str = "physical", ignore_armor: bool = False) -> bool:
         # return True if killed, False if survived
@@ -129,6 +134,8 @@ class FighterInstance:
         enemy_range = ui_questions.get_enemy_melee_range(enemy)
         range_advantage = calculate_range_at_advantage(own_range, enemy_range)
         print(f"range_advantage: {range_advantage}")
+        
+        # TODO: implement pain difficulty
 
         # roll die
         target_at += range_advantage
